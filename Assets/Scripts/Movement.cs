@@ -2,14 +2,13 @@
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Camera playerCamera;
     CharacterController characterController;
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 15f;
-    //public float jumpSpeed = 8f;
+    public float jumpSpeed = 8f;
     Vector3 moveDirection;
-    float gravity = 200f;
+    float gravity = 20f;
     private bool isRunning;
 
     float rotationX = 0;
@@ -21,7 +20,6 @@ public class Movement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -29,6 +27,7 @@ public class Movement : MonoBehaviour
 
         float speedZ = Input.GetAxis("Vertical");
         float speedX = Input.GetAxis("Horizontal");
+        float speedY = moveDirection.y;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -51,6 +50,15 @@ public class Movement : MonoBehaviour
         }
 
         moveDirection = forward * speedZ + right * speedX;
+
+        if (Input.GetButton("Jump") && characterController.isGrounded)
+        {
+            moveDirection.y = jumpSpeed;
+        }
+        else
+        {
+            moveDirection.y = speedY;
+        }
 
         if (!characterController.isGrounded)
         {
