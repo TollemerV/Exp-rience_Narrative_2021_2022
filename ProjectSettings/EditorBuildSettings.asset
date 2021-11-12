@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phone.unity
     guid: 7c4188d5591484f498862a0ae5311730
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Phone_AppPicture.unity
     guid: ad784e4071b56a84a8328a48df6ea302
+  - enabled: 1
+    path: Assets/Scenes/App_phone.unity
+    guid: b886ce847de5cdb42812e47e56475d9b
   m_configObjects: {}
