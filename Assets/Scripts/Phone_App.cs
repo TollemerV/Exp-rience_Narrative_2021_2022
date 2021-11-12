@@ -5,7 +5,7 @@ public class Phone_App : MonoBehaviour
 {
     public void BackAllApp()
     {
-        SceneManager.LoadScene("Phone");
+        SceneManager.LoadScene("Phone_Menu");
     }
 
 }

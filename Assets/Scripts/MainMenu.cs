@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
    public void PlayGame()
     {
-        SceneManager.LoadScene("Phone");
+        SceneManager.LoadScene("Phone_Menu");
     }
 
     public void QuitGame()
