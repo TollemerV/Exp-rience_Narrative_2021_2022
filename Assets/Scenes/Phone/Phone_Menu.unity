@@ -195,6 +195,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129007166}
   m_CullTransparentMesh: 0
+--- !u!1 &294198248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294198249}
+  - component: {fileID: 294198251}
+  - component: {fileID: 294198250}
+  m_Layer: 5
+  m_Name: network
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &294198249
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294198248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1861471367}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.1, y: 0}
+  m_AnchorMax: {x: 0.22, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &294198250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294198248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: f2b3a02a72604fa4ab49f9237431bae6, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &294198251
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294198248}
+  m_CullTransparentMesh: 0
 --- !u!1 &298610671
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +501,7 @@ GameObject:
   - component: {fileID: 466282429}
   - component: {fileID: 466282428}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Battery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,7 +879,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 8f81296811984014fabddef1cf2b368d, type: 3}
+  m_Texture: {fileID: 2800000, guid: 76ade7fc6c4f8bd458898b0d6e966199, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1378,7 +1449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1cdeba76d7d82464bb61cc702fc39031, type: 3}
+  m_Texture: {fileID: 2800000, guid: cc9099b250349a846b7f97c1a263788d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1694,7 +1765,7 @@ GameObject:
   - component: {fileID: 1094883236}
   - component: {fileID: 1094883235}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TIME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1714,8 +1785,8 @@ RectTransform:
   m_Father: {fileID: 1861471367}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0}
-  m_AnchorMax: {x: 0.32, y: 1}
+  m_AnchorMin: {x: 0.39, y: 0}
+  m_AnchorMax: {x: 0.66, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2803,7 +2874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 8c55fd87dd989164f9c672fe1c4162ae, type: 3}
+  m_Texture: {fileID: 2800000, guid: ed9747766726c5a45ba26e1c3dc84d84, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2849,6 +2920,7 @@ RectTransform:
   m_Children:
   - {fileID: 1094883234}
   - {fileID: 466282427}
+  - {fileID: 294198249}
   m_Father: {fileID: 1040652531}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
