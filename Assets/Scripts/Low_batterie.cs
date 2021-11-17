@@ -20,7 +20,6 @@ public class Low_batterie : MonoBehaviour
         _timer.AutoReset = true;
 
         _timer.Start();
-        print("OK");
 
     }
 
@@ -28,7 +27,6 @@ public class Low_batterie : MonoBehaviour
     {
         if (show_warn == true)
         {
-            print("here1");
             img.enabled = true;
             _timer.Stop();
             _timer.Interval = 2000; //Set your new interval here
@@ -37,7 +35,6 @@ public class Low_batterie : MonoBehaviour
         }
         else
         {
-            print("here2");
             img.enabled = false;
             _timer.Stop();
             _timer.Interval = 1000; //Set your new interval here
