@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+using System.Timers;
 
-public class Phone_click : MonoBehaviour
+public class Phone_ : MonoBehaviour
 {
+   
     public void Start_App(string appNameSelect)
     {
         SceneManager.LoadScene(appNameSelect);
