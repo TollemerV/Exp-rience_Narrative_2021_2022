@@ -5,9 +5,11 @@ public class Inventory : MonoBehaviour
 {
     public List<GameObject> inventory = new List<GameObject>();
     public GameObject player;
+    public Sprite img;
 
     public void AddInventory(GameObject objet)
     {
+        player.GetComponent<Material>();
         if (!inventory.Contains(objet))
         {
             inventory.Add(objet);

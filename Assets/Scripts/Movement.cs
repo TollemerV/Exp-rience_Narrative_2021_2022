@@ -4,8 +4,8 @@ public class Movement : MonoBehaviour
 {
     public Camera playerCamera;
     CharacterController characterController;
-    public float walkingSpeed = 7.5f;
-    public float runningSpeed = 15f;
+    public float walkingSpeed = 5f;
+    public float runningSpeed = 10f;
 //  public float jumpSpeed = 8f;
     Vector3 moveDirection;
     float gravity = 20f;
@@ -66,9 +66,9 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                moveDirection.y = speedY;
+                
             }*/
-
+            moveDirection.y = speedY;
             if (!characterController.isGrounded)
             {
                 moveDirection.y -= gravity * Time.deltaTime;
