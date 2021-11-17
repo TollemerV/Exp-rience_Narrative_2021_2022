@@ -2,11 +2,14 @@
 
 public class test : MonoBehaviour
 {
+    
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private Material diffMaterial;
     [SerializeField] private Material defaultMaterial;
-
+    public GameObject inventory;
     private Transform _selection;
+
+    
 
     void Update()
     {
@@ -31,6 +34,10 @@ public class test : MonoBehaviour
                 if (selectionRenderer != null)
                 {
                     selectionRenderer.material = diffMaterial;
+                }
+                if (Input.GetKey(KeyCode.E))
+                {
+                    inventory.GetComponent<Inventory>().AddInventory(selection.gameObject);
                 }
 
                 _selection = selection;

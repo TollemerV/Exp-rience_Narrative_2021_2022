@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
     CharacterController characterController;
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 15f;
-    public float jumpSpeed = 8f;
+//  public float jumpSpeed = 8f;
     Vector3 moveDirection;
     float gravity = 20f;
     private bool isRunning;
@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour
 
     public bool isPause = false;
     public GameObject pauseMenu;
+
+    public GameObject inventory;
 
     void Start()
     {
@@ -58,14 +60,14 @@ public class Movement : MonoBehaviour
 
             moveDirection = forward * speedZ + right * speedX;
 
-            if (Input.GetButton("Jump") && characterController.isGrounded)
+            /*if (Input.GetButton("Jump") && characterController.isGrounded)
             {
                 moveDirection.y = jumpSpeed;
             }
             else
             {
                 moveDirection.y = speedY;
-            }
+            }*/
 
             if (!characterController.isGrounded)
             {
@@ -82,7 +84,21 @@ public class Movement : MonoBehaviour
                 Cursor.lockState = 0;
                 pauseMenu.SetActive(true);
             }
+            if (Input.GetKey(KeyCode.I))
+            {
+                StartCoroutine(Second());
+                System.Collections.IEnumerator Second()
+                {
+                    yield return new WaitForSeconds(0.2f);
+                    isPause = true;
+                    Cursor.visible = true;
+                    Cursor.lockState = 0;
+                    inventory.SetActive(true);
+                } 
+            }
+
             
+
             rotationX += -Input.GetAxis("Mouse Y") * rotationSpeed;
             rotationX = Mathf.Clamp(rotationX, -rotationXLimit, rotationXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX,0,0);
@@ -91,4 +107,5 @@ public class Movement : MonoBehaviour
         
         
     }
+    
 }
