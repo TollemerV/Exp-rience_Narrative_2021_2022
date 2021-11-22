@@ -32,4 +32,12 @@ public class AppCam_ : MonoBehaviour
         _timer.Stop();
     }
 
+    public void onBtn(Button btn)
+    {
+        btn.image.color = new Color(255f, 255f, 255f, .5f);    }
+    public void leaveBtn(Button btn)
+    {
+        btn.image.color = new Color(255f, 255f, 255f, 1f);
+    }
+
 }
