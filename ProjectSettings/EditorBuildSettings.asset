@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 19ce1e9dd6786a645a07e70aec4dd5de
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_1.unity
+    guid: 523a83714a97150439369efbe5864a3e
   m_configObjects: {}
