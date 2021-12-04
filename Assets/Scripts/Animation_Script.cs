@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Timers;
 using UnityEngine.UI;
 
-public class AppCam_ : MonoBehaviour
+public class Animation_Script : MonoBehaviour
 {
     public GameObject panel;
     private Timer _timer;
@@ -34,10 +34,10 @@ public class AppCam_ : MonoBehaviour
 
     public void onBtn(Button btn)
     {
-        btn.image.color = new Color(255f, 255f, 255f, .5f);    }
+        btn.image.color = new Color(255f, 255f, 255f, .5f);
+    }
     public void leaveBtn(Button btn)
     {
         btn.image.color = new Color(255f, 255f, 255f, 1f);
     }
-
 }
