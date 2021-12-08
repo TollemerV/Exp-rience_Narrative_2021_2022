@@ -62,7 +62,103 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phone/Apps/SMS/MSG_1.unity
     guid: 2122f27c61d9a4843a24d7f15b2908d3
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Phone/Apps/Contact/Adam_FCT.unity
-    guid: e8c8a31950bf3fe4ba82a9ecafa2ea80
+    path: Assets/Scenes/Phone/Apps/Contact/Adam_FCT_.unity
+    guid: e4e4e0c9715f4294db67b06af5437d56
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Adrien_FCT.unity
+    guid: 2f5c3ec3dd9cd504095eb5937f8c6f14
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Alexandre_FCT.unity
+    guid: bb133ac2e9c275047b18f5a7aaa3e3a0
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Alexia_FCT.unity
+    guid: d0b0da62ade8fe04aa3c794a991d676b
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Antoine_FCT.unity
+    guid: df2c260a2e5f7df4b97988ec247ea565
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Baptiste_FCT.unity
+    guid: 3a4ed42844855904c8e6051c87c2e6ee
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Bill_FCT.unity
+    guid: 2c231e5aa8b7225479e469ec91a2fec4
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Elise_FCT.unity
+    guid: 986c3dfee8bf17748a005ce092ecbe96
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Enzo_FCT.unity
+    guid: a4677d6b917dc924e80181c6e79ca3b2
+  - enabled: 0
+    path: Assets/Scenes/Phone/Apps/Contact/Fiche_contact26.unity
+    guid: 72692f7427b51794dbd2f1dd092fa28a
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Gabriel_FCT.unity
+    guid: 34bf4e21065c6dc4d973c96498cb6bd5
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Hugo_FCT.unity
+    guid: 8b121175786d7104d884a3c995a318db
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Jules_FCT.unity
+    guid: 0a77fe0505cc8b1409e5ecdc10768548
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Julie_FCT.unity
+    guid: 60d30243b10ba4248943ef8915b6005c
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Lea_FCT.unity
+    guid: dcc84a2049ff7414f840ef8ad44bd7f5
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Louis_FCT.unity
+    guid: 800e52853b7b6494598460b4874a0ef5
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Lucas_FCT.unity
+    guid: 842f6064f119ab849b80a02b8be75c77
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Maelle_FCT.unity
+    guid: a4387bfd0eb668846a7e5d6ad2790761
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Mathis_FCT.unity
+    guid: f1faffffb5765f242a763c7635a9649a
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Matteo_FCT.unity
+    guid: 16e80a8ec628e8244a5e31f003566e7d
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Maxime_FCT.unity
+    guid: 3de45bceee010e541a505f537a59361b
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Nathan_FCT.unity
+    guid: fc93b9aad61d3ca4aa473ec23260c133
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Nicolas_FCT.unity
+    guid: 29a90a37235634747b18bc8d7154793e
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Paul_FCT.unity
+    guid: ab9323815f14e9a47b97b31e3d39fe6d
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Pierre_FCT.unity
+    guid: 1a58e4d3be56bc344a16bfb3c2b5238a
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Quentin_FCT.unity
+    guid: 6c37a2447e25f2d45890084252a26ba8
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Raphael_FCT.unity
+    guid: 4dc4859d8857ef74c9ba7150bb3bf9f2
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Roger_FCT.unity
+    guid: e504eebd6793c974e82bb195dad31f9d
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Romain_FCT.unity
+    guid: 3488de539b55eb94997834c6ac15a77b
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Theo_FCT.unity
+    guid: e8ce5b7ceffd22b4b81990f4fc95cf76
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Tom_FCT.unity
+    guid: 41c8374fa3459ab439c18045bcbf61c3
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Valentin_FCT.unity
+    guid: e99b4ac107396054ebac1c4be5079057
   m_configObjects: {}

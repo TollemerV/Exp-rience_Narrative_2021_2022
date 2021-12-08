@@ -10,6 +10,6 @@ public class App_FCts : MonoBehaviour
 
     public void quitFCt()
     {
-        SceneManager.LoadScene("App_sms");
+        SceneManager.LoadScene("App_contact");
     }
 }
