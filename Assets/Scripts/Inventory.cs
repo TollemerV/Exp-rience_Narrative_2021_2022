@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     public Transform inventorySlots;
     public Transform itemPrefab;
     public int slotsCount;
+    public GameObject DoorOne;
 
     public void AddInventory(GameObject objet)
     {
@@ -19,12 +20,19 @@ public class Inventory : MonoBehaviour
             Transform newItem;
             newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity) as Transform;
             newItem.SetParent(inventorySlots, false);
+            newItem.name = objet.name + " Slot";
             ItemSlots itemInventory = newItem.GetComponent<ItemSlots>();
             ItemVariable itemScene = objet.GetComponent<ItemVariable>();
             itemInventory.itemType = itemScene.itemType;
             itemInventory.itemID = itemScene.itemID;
             itemInventory.itemSprite = itemScene.itemSprite;
             itemInventory.itemDescription = itemScene.itemDescription;
+
+            if (itemScene.itemID=="001")
+            {
+                DoorOne.GetComponent<DetectionControler>().key = newItem.gameObject;
+                DoorOne.GetComponent<DetectionControler>().haveKey=true;
+            }
         }
         
     }
@@ -49,8 +57,10 @@ public class Inventory : MonoBehaviour
         
         yield return new WaitForSeconds(0.2f);
         gameObject.SetActive(false);
-        player.GetComponent<Movement>().isPause = false;
+        player.GetComponent<PlayerControler>().isPause = false;
+        player.GetComponent<PlayerControler>().Ath.SetActive(true);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
     }
 }

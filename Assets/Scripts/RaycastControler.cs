@@ -8,6 +8,8 @@ public class RaycastControler : MonoBehaviour
     [SerializeField] private Material defaultMaterial;
     public GameObject inventory;
     private Transform _selection;
+    private bool beingCarried = false;
+
 
     
 
@@ -42,8 +44,30 @@ public class RaycastControler : MonoBehaviour
 
                 _selection = selection;
             }
-            
-            
+
+            if (selection.CompareTag("CanBeCarried") && Input.GetMouseButtonDown(0) && !beingCarried)
+            {
+                selection.parent = transform;
+                selection.GetComponent<Rigidbody>().isKinematic = true;
+                beingCarried = true;
+            }
+
+            if (selection.CompareTag("CanBeCarried") && Input.GetKeyDown(KeyCode.A) && beingCarried)
+            {
+                selection.parent = null;
+                selection.GetComponent<Rigidbody>().isKinematic = false;
+                beingCarried = false;
+            }
+
+            if (selection.CompareTag("CanBeCarried") && Input.GetMouseButtonDown(1) && beingCarried)
+            {
+                selection.parent = null;
+                selection.GetComponent<Rigidbody>().isKinematic = false;
+                beingCarried = false;
+                selection.GetComponent<Rigidbody>().AddForce(transform.forward * 350);
+            }
+
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PlayerControler : MonoBehaviour
 {
     public Camera playerCamera;
     CharacterController characterController;
@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     public GameObject pauseMenu;
 
     public GameObject inventory;
+    public GameObject Ath;
 
     void Start()
     {
@@ -83,7 +84,10 @@ public class Movement : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = 0;
                 pauseMenu.SetActive(true);
+                Ath.SetActive(false);
             }
+
+
             if (Input.GetKey(KeyCode.I))
             {
                 StartCoroutine(Second());
@@ -94,6 +98,7 @@ public class Movement : MonoBehaviour
                     Cursor.visible = true;
                     Cursor.lockState = 0;
                     inventory.SetActive(true);
+                    Ath.SetActive(false);
                 } 
             }
 
