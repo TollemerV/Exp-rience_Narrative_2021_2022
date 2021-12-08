@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Eliott.unity
     guid: 0c6ea0a1e2943e843904bd6ffef9d521
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Phone/Phone_backup.unity
     guid: 7c4188d5591484f498862a0ae5311730
   - enabled: 0
@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phone/Phone_Menu.unity
     guid: ed49798534f5adf4ea6a85009365fa2c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Phone/Apps/App_calendar.unity
     guid: b552ab1e185ba0d4cb1d63e999219807
   - enabled: 1
@@ -35,12 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phone/Apps/App_contact.unity
     guid: 135e1250aaf25a849a77191175f238e1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Phone/Apps/App_gallery.unity
     guid: 150869a4b2ece7a4bb84559febaf2bab
-  - enabled: 1
-    path: Assets/Scenes/Phone/Apps/App_mails.unity
-    guid: 26304c16fdd4fe846bf9b7066144eca8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Phone/Apps/App_note.unity
     guid: 4ae58878ccd81db4d8d824ad7f3729cc
@@ -53,10 +53,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 19ce1e9dd6786a645a07e70aec4dd5de
-  - enabled: 1
-    path: Assets/Scenes/Phone/Apps/SMS/MSG_1.unity
+  - enabled: 0
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_2.unity
     guid: 523a83714a97150439369efbe5864a3e
   - enabled: 1
     path: Assets/Scenes/Phone/Apps/Security_Code.unity
     guid: d09bd6b1454b911409677c31422be604
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_1.unity
+    guid: 2122f27c61d9a4843a24d7f15b2908d3
   m_configObjects: {}
