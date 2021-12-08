@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phone/Apps/SMS/MSG_1.unity
     guid: 2122f27c61d9a4843a24d7f15b2908d3
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Contact/Adam_FCT.unity
+    guid: e8c8a31950bf3fe4ba82a9ecafa2ea80
   m_configObjects: {}
