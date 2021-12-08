@@ -5,15 +5,26 @@ public class Inventory : MonoBehaviour
 {
     public List<GameObject> inventory = new List<GameObject>();
     public GameObject player;
-    public Sprite img;
+    public Transform inventorySlots;
+    public Transform itemPrefab;
+    public int slotsCount;
 
     public void AddInventory(GameObject objet)
     {
         player.GetComponent<Material>();
-        if (!inventory.Contains(objet))
+        if (!inventory.Contains(objet) && inventorySlots.childCount<slotsCount)
         {
             inventory.Add(objet);
             objet.SetActive(false);
+            Transform newItem;
+            newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity) as Transform;
+            newItem.SetParent(inventorySlots, false);
+            ItemSlots itemInventory = newItem.GetComponent<ItemSlots>();
+            ItemVariable itemScene = objet.GetComponent<ItemVariable>();
+            itemInventory.itemType = itemScene.itemType;
+            itemInventory.itemID = itemScene.itemID;
+            itemInventory.itemSprite = itemScene.itemSprite;
+            itemInventory.itemDescription = itemScene.itemDescription;
         }
         
     }

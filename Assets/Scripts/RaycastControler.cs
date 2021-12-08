@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class test : MonoBehaviour
+public class RaycastControler : MonoBehaviour
 {
     
     [SerializeField] private string selectableTag = "Selectable";
