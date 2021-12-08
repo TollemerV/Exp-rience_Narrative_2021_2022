@@ -7,6 +7,8 @@ public class ItemVariable : MonoBehaviour
     public string itemType;
     public string itemID;
     public Sprite itemSprite;
+    public Sprite itemSlotSprite;
     public string itemDescription;
+    
 
 }

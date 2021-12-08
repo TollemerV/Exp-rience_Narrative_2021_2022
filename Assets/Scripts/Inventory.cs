@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour
 {
@@ -26,7 +27,9 @@ public class Inventory : MonoBehaviour
             itemInventory.itemType = itemScene.itemType;
             itemInventory.itemID = itemScene.itemID;
             itemInventory.itemSprite = itemScene.itemSprite;
+            itemInventory.itemSlotSprite = itemScene.itemSlotSprite;
             itemInventory.itemDescription = itemScene.itemDescription;
+            EventTrigger ItemEventTrigger = newItem.GetComponent<EventTrigger>();
 
             if (itemScene.itemID=="001")
             {
@@ -36,6 +39,12 @@ public class Inventory : MonoBehaviour
         }
         
     }
+
+    public void EnableImage()
+    {
+        print("test");
+    }
+
     public void DisableInventory()
     {
         StartCoroutine(CoroutineDisableInventory());

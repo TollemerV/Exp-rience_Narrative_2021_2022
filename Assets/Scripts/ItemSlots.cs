@@ -8,12 +8,25 @@ public class ItemSlots : MonoBehaviour
     public string itemType;
     public string itemID;
     public Sprite itemSprite;
+    public Sprite itemSlotSprite;
     public string itemDescription;
+    public GameObject imagePrefab;
+    public Image itemImagePanel;
 
     // Start is called before the first frame update
+
     void Start()
     {
-        GetComponent<Image>().sprite = itemSprite;
+        GetComponent<Image>().sprite = itemSlotSprite;
+        GameObject itemImagePanel = GameObject.Find("ItemsImage");
+        itemImagePanel.GetComponent<Image>().sprite = itemSprite;
+        //float item = ItemImagePanel.GetComponent<Image>().color.a;
+    }
+
+    public void DisplayImage()
+    {
+        //itemImagePanel.sprite = itemSprite;
+        GameObject.FindGameObjectWithTag("ItemImage").GetComponent<Image>().sprite = itemSprite;
     }
 
 }
