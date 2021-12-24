@@ -11,4 +11,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         player.GetComponent<Movement>().isPause = false;
     }
+    
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

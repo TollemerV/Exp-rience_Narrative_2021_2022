@@ -66,12 +66,12 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                moveDirection.y = speedY;
+                
             }*/
-
+            moveDirection.y = speedY;
             if (!characterController.isGrounded)
             {
-                moveDirection.y -= gravity * Time.deltaTime;
+                moveDirection.y -= gravity * 15 * Time.deltaTime;
             }
 
 
