@@ -4173,7 +4173,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 348746512}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.38933334
+  m_Size: 0.3893333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4849,7 +4849,7 @@ GameObject:
   - component: {fileID: 1043670336}
   - component: {fileID: 1043670335}
   m_Layer: 5
-  m_Name: Nicolas
+  m_Name: Nico
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6325,7 +6325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Nicolas
+  m_Text: Nico
 --- !u!222 &1295867762
 CanvasRenderer:
   m_ObjectHideFlags: 0

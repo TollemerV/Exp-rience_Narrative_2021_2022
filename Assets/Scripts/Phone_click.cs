@@ -18,4 +18,15 @@ public class Phone_click : MonoBehaviour
     {
         img.enabled = false;
     }
+
+    public void OnMouseOver_(RawImage Rimg)
+    {
+        Rimg.enabled = true;
+    }
+
+    public void OnMouseExit_(RawImage Rimg)
+    {
+        Rimg.enabled = false;
+    }
+
 }
