@@ -1578,8 +1578,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 170681108}
   m_HandleRect: {fileID: 170681107}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.584
+  m_Value: 1.0000002
+  m_Size: 0.58400005
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3741,7 +3741,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1264901814}
+          m_MethodName: BackAllApp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: MainMenu
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1264901814}
+          m_MethodName: onMenuBtn
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1202534375}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: MainMenu
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1264901814}
+          m_MethodName: leaveMenuBtn
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1202534375}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: MainMenu
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1202534375
 MonoBehaviour:
   m_ObjectHideFlags: 0

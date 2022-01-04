@@ -29,7 +29,6 @@ public class Low_batterie : MonoBehaviour
         {
             img.enabled = true;
             _timer.Stop();
-            _timer.Interval = 2000; //Set your new interval here
             _timer.Start();
             show_warn = false;
         }
@@ -37,7 +36,6 @@ public class Low_batterie : MonoBehaviour
         {
             img.enabled = false;
             _timer.Stop();
-            _timer.Interval = 1000; //Set your new interval here
             _timer.Start();
             show_warn = true;
         }

@@ -8,7 +8,7 @@ public class Security : MonoBehaviour
     public InputField PswSelect;
     public void ValidatePsw()
     {
-        if (PswSelect.text == "TEST123")
+        if (PswSelect.text == "B666a9")
         {
             SceneManager.LoadScene("App_note");
         }

@@ -176,4 +176,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phone/Apps/SMS/MSG_Elise.unity
     guid: 486bf1cd29d15b24bacc840c17312306
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/Security_Web.unity
+    guid: 2b76157ceb92849488e0905a37ac4a64
   m_configObjects: {}
