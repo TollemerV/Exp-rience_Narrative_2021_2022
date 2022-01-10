@@ -9,6 +9,8 @@ public class DetectionControler : MonoBehaviour
     public Text missingKeyText;
     public Text haveKeyText;
     public bool haveKey = false;
+    public Animator fadeSystem;
+    public Animator doorRotation;
 
     void OnTriggerEnter()
     {
@@ -23,13 +25,26 @@ public class DetectionControler : MonoBehaviour
         
     }
 
+    bool isOpen = false;
+
     void OnTriggerStay()
     {
+
         if (key != null && Input.GetKey(KeyCode.F))
         {
-            transform.parent.gameObject.SetActive(false);
-            haveKeyText.gameObject.SetActive(false);
-            key.SetActive(false);
+            if (!isOpen)
+            {
+                
+                doorRotation.SetTrigger("OpenDoor");
+                StartCoroutine(CorroutineOpenDoor());
+                
+                
+                
+                key.SetActive(false);
+                //transform.parent.gameObject.SetActive(false);
+                haveKeyText.gameObject.SetActive(false);
+                isOpen = true;
+            }
         }
     }
 
@@ -44,4 +59,12 @@ public class DetectionControler : MonoBehaviour
             haveKeyText.gameObject.SetActive(false);
         }
     }
+
+    IEnumerator CorroutineOpenDoor()
+    {
+        yield return new WaitForSeconds(1f);
+        fadeSystem.SetTrigger("FadeIn");
+    }
 }
+
+

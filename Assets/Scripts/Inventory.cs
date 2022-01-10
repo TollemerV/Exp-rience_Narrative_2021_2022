@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 public class Inventory : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class Inventory : MonoBehaviour
     public Transform itemPrefab;
     public int slotsCount;
     public GameObject DoorOne;
+    public GameObject ItemDisplay;
+    public GameObject ItemDisplaySlot;
 
     public void AddInventory(GameObject objet)
     {
@@ -24,6 +28,7 @@ public class Inventory : MonoBehaviour
             newItem.name = objet.name + " Slot";
             ItemSlots itemInventory = newItem.GetComponent<ItemSlots>();
             ItemVariable itemScene = objet.GetComponent<ItemVariable>();
+            itemInventory.Object = objet;
             itemInventory.itemType = itemScene.itemType;
             itemInventory.itemID = itemScene.itemID;
             itemInventory.itemSprite = itemScene.itemSprite;
@@ -50,14 +55,50 @@ public class Inventory : MonoBehaviour
         StartCoroutine(CoroutineDisableInventory());
     }
 
+    private bool isSorted;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.I))
         {
             DisableInventory();
         }
+        if (Input.GetKey(KeyCode.T) && ItemDisplay != null)
+        {
+            print(ItemDisplay.GetComponent<ItemVariable>().itemID);
+            if (!isSorted)
+            {
+                ItemDisplaySlot.SetActive(false);
+                GameObject newItem = Instantiate(ItemDisplay, Vector3.forward, Quaternion.identity);
+                newItem.name = ItemDisplay.name;
+                Transform PlayerCameraTransform = player.GetComponent<PlayerControler>().playerCamera.transform;
+                newItem.transform.SetParent(PlayerCameraTransform, false);
+
+                isSorted = true;
+                newItem.GetComponent<Rigidbody>().isKinematic = true;
+                newItem.SetActive(true);
+                StartCoroutine(CoroutItem(newItem));
+
+            }
+            
+        }
     }
 
+    System.Collections.IEnumerator CoroutItem(GameObject newItem)
+    {
+        yield return new WaitForSeconds(0.1f);
+        newItem.transform.SetParent(player.transform.parent, true);
+        isSorted = false;
+        ItemDisplay = null;
+        ItemDisplaySlot = null;
+        newItem.GetComponent<Rigidbody>().isKinematic = false;
+        GameObject.FindGameObjectWithTag("ItemImage").GetComponent<Image>().color = new Color(255, 255, 255, 0);
+
+
+
+
+
+    }
     
 
     System.Collections.IEnumerator CoroutineDisableInventory()

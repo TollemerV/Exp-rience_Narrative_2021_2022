@@ -10,6 +10,7 @@ public class ItemSlots : MonoBehaviour
     public Sprite itemSprite;
     public Sprite itemSlotSprite;
     public string itemDescription;
+    public GameObject Object;
     public GameObject imagePrefab;
     public Image itemImagePanel;
 
@@ -27,6 +28,9 @@ public class ItemSlots : MonoBehaviour
     {
         //itemImagePanel.sprite = itemSprite;
         GameObject.FindGameObjectWithTag("ItemImage").GetComponent<Image>().sprite = itemSprite;
+        GameObject.FindGameObjectWithTag("ItemImage").GetComponent<Image>().color = new Color (255,255,255,255);
+        transform.parent.parent.GetComponent<Inventory>().ItemDisplay = Object;
+        transform.parent.parent.GetComponent<Inventory>().ItemDisplaySlot = transform.gameObject;
     }
 
 }
