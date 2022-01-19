@@ -303,7 +303,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: 17}
-  m_SizeDelta: {x: 230, y: 68}
+  m_SizeDelta: {x: 230, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30791240
 MonoBehaviour:
@@ -1533,7 +1533,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: 22}
-  m_SizeDelta: {x: 230, y: 88}
+  m_SizeDelta: {x: 230, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &345719465
 MonoBehaviour:
@@ -1763,7 +1763,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -30, y: 1487}
-  m_SizeDelta: {x: 300, y: 109.70863}
+  m_SizeDelta: {x: 300, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497139425
 MonoBehaviour:
@@ -1984,7 +1984,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: 13}
-  m_SizeDelta: {x: 230, y: 52}
+  m_SizeDelta: {x: 230, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624014736
 MonoBehaviour:
@@ -2867,7 +2867,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Mec t\u2019as d\xE9conn\xE9 de ouf\u2026 de base cette histoire est partie
-    de toi et tu as vu o\xF9 \xE7a a men\xE9 le nouveau ? \n"
+    de toi et tu as vu o\xF9 \xE7a a men\xE9 le nouveau ? "
 --- !u!222 &1172171752
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3401,7 +3401,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: 11}
-  m_SizeDelta: {x: 230, y: 44}
+  m_SizeDelta: {x: 230, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500516319
 MonoBehaviour:
@@ -3690,7 +3690,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: 22}
-  m_SizeDelta: {x: 230, y: 88}
+  m_SizeDelta: {x: 240, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594329461
 MonoBehaviour:
@@ -5124,7 +5124,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: 22}
-  m_SizeDelta: {x: 230, y: 88}
+  m_SizeDelta: {x: 240, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934115085
 MonoBehaviour:
@@ -5237,7 +5237,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Et le code pour rentrer dans ma r\xE9sidance c'est B666a9"
+  m_Text: "Et le code pour rentrer dans ma r\xE9sidence c'est B666a9"
 --- !u!222 &1952732062
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5591,7 +5591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 1397}
+  m_AnchoredPosition: {x: 20, y: 1384}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038750535

@@ -179,4 +179,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phone/Apps/Security_Web.unity
     guid: 2b76157ceb92849488e0905a37ac4a64
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_Theo.unity
+    guid: 21ec1ebe1b9f0d34e8bc03fc9932a60e
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_Adam.unity
+    guid: 83010d392f8355044a088429d7911398
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_Adrien.unity
+    guid: a31af099df613c640bf428bef3e7bbe1
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_Hugo.unity
+    guid: a28a10edd78385a4ea63e8ec7d5baab2
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_Paul.unity
+    guid: 828b8162615c7a84d9366390e63e5b41
+  - enabled: 1
+    path: Assets/Scenes/Phone/Apps/SMS/MSG_Romain.unity
+    guid: 245638aaffdfc6c449e5a0ad02e4260e
   m_configObjects: {}

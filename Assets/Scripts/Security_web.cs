@@ -10,7 +10,7 @@ public class Security_web : MonoBehaviour
     public InputField PswSelect;
     public void ValidatePsw()
     {
-        if (MailSelect.text == "AZERTY@gmail.com" && PswSelect.text == "R6Z3C7U7S4A1")
+        if (MailSelect.text == "AZERTY@gmail.com" && PswSelect.text == "R6Z3C7U7S4")
         {
             SceneManager.LoadScene("App_web");
         }

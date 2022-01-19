@@ -2009,8 +2009,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1539596730}
   m_HandleRect: {fileID: 1539596729}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.120888874
+  m_Value: -0.00000003085701
+  m_Size: 0.120888904
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2701,7 +2701,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -20, y: -1807}
-  m_SizeDelta: {x: 300, y: 260}
+  m_SizeDelta: {x: 300, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959418436
 MonoBehaviour:
@@ -3615,7 +3615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TU M'AVAIS DIS QUE CA NE LE TUERAIS PAS MAIS T'ES JUSTE UN PNT DE MENTEUR!
+  m_Text: T'ES JUSTE UN PNT DE MENTEUR!
 --- !u!222 &1153152043
 CanvasRenderer:
   m_ObjectHideFlags: 0
