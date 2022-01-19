@@ -5,7 +5,7 @@ public class PlayerControler : MonoBehaviour
     public Camera playerCamera;
     CharacterController characterController;
     public float walkingSpeed = 5f;
-    public float runningSpeed = 10f;
+    public float runningSpeed = 12f;
 //  public float jumpSpeed = 8f;
     Vector3 moveDirection;
     float gravity = 20f;
