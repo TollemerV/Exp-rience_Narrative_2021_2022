@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     public Transform itemPrefab;
     public int slotsCount;
     public GameObject DoorOne;
+    public GameObject DoorTwo;
     public GameObject ItemDisplay;
     public GameObject ItemDisplaySlot;
 
@@ -40,6 +41,11 @@ public class Inventory : MonoBehaviour
             {
                 DoorOne.GetComponent<DetectionControler>().key = newItem.gameObject;
                 DoorOne.GetComponent<DetectionControler>().haveKey=true;
+            }
+            if (itemScene.itemID == "002")
+            {
+                DoorTwo.GetComponent<DetectionControler>().key = newItem.gameObject;
+                DoorTwo.GetComponent<DetectionControler>().haveKey = true;
             }
         }
         
@@ -99,7 +105,11 @@ public class Inventory : MonoBehaviour
             DoorOne.GetComponent<DetectionControler>().key = null;
             DoorOne.GetComponent<DetectionControler>().haveKey = false;
         }
-
+        if (newItem.GetComponent<ItemVariable>().itemID == "002")
+        {
+            DoorTwo.GetComponent<DetectionControler>().key = null;
+            DoorTwo.GetComponent<DetectionControler>().haveKey = false;
+        }
 
 
 

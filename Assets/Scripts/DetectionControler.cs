@@ -9,7 +9,6 @@ public class DetectionControler : MonoBehaviour
     public Text missingKeyText;
     public Text haveKeyText;
     public bool haveKey = false;
-    public Animator fadeSystem;
     public Animator doorRotation;
 
     void OnTriggerEnter()
@@ -36,7 +35,6 @@ public class DetectionControler : MonoBehaviour
             {
                 
                 doorRotation.SetTrigger("OpenDoor");
-                StartCoroutine(CorroutineOpenDoor());
                 
                 
                 
@@ -58,12 +56,6 @@ public class DetectionControler : MonoBehaviour
         {
             haveKeyText.gameObject.SetActive(false);
         }
-    }
-
-    IEnumerator CorroutineOpenDoor()
-    {
-        yield return new WaitForSeconds(1f);
-        fadeSystem.SetTrigger("FadeIn");
     }
 }
 
