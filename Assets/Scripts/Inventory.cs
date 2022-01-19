@@ -79,6 +79,7 @@ public class Inventory : MonoBehaviour
                 newItem.SetActive(true);
                 StartCoroutine(CoroutItem(newItem));
 
+
             }
             
         }
@@ -93,7 +94,11 @@ public class Inventory : MonoBehaviour
         ItemDisplaySlot = null;
         newItem.GetComponent<Rigidbody>().isKinematic = false;
         GameObject.FindGameObjectWithTag("ItemImage").GetComponent<Image>().color = new Color(255, 255, 255, 0);
-
+        if (newItem.GetComponent<ItemVariable>().itemID == "001")
+        {
+            DoorOne.GetComponent<DetectionControler>().key = null;
+            DoorOne.GetComponent<DetectionControler>().haveKey = false;
+        }
 
 
 
