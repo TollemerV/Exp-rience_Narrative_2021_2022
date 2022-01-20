@@ -9,6 +9,7 @@ public class RaycastControler : MonoBehaviour
     public GameObject inventory;
     private Transform _selection;
     private bool beingCarried = false;
+    public Material testMaterial;
 
 
     
@@ -17,8 +18,11 @@ public class RaycastControler : MonoBehaviour
     {
         if (_selection != null)
         {
+            
+            
+            //defaultMaterial = _selection.GetComponent<Material>();
             var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
+            selectionRenderer.material = testMaterial;
             _selection = null;
         }
 
@@ -33,8 +37,14 @@ public class RaycastControler : MonoBehaviour
             if (selection.CompareTag(selectableTag))
             {
                 var selectionRenderer = selection.GetComponent<Renderer>();
+                if (testMaterial == null)
+                {
+                    testMaterial = selection.GetComponent<Renderer>().material;
+                }
                 if (selectionRenderer != null)
                 {
+                    
+
                     selectionRenderer.material = diffMaterial;
                 }
                 if (Input.GetKey(KeyCode.E))
@@ -43,7 +53,15 @@ public class RaycastControler : MonoBehaviour
                 }
 
                 _selection = selection;
+            } 
+            else if (selection.name == "Digicode_00" && Input.GetKeyDown(KeyCode.G))
+            {
+                print("digicode");
+                Cursor.visible = true;
+                Cursor.lockState = 0;
+                gameObject.SetActive(false);
             }
+            
 
             if (selection.CompareTag("CanBeCarried") && Input.GetMouseButtonDown(0) && !beingCarried)
             {

@@ -36,11 +36,11 @@ public class Inventory : MonoBehaviour
             itemInventory.itemDescription = itemScene.itemDescription;
             EventTrigger ItemEventTrigger = newItem.GetComponent<EventTrigger>();
 
-            if (itemScene.itemID=="001")
+            /*if (itemScene.itemID=="001")
             {
                 DoorOne.GetComponent<DetectionControler>().key = newItem.gameObject;
                 DoorOne.GetComponent<DetectionControler>().haveKey=true;
-            }
+            }*/
         }
         
     }
@@ -65,7 +65,6 @@ public class Inventory : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.T) && ItemDisplay != null)
         {
-            print(ItemDisplay.GetComponent<ItemVariable>().itemID);
             if (!isSorted)
             {
                 ItemDisplaySlot.SetActive(false);
@@ -78,6 +77,7 @@ public class Inventory : MonoBehaviour
                 newItem.GetComponent<Rigidbody>().isKinematic = true;
                 newItem.SetActive(true);
                 StartCoroutine(CoroutItem(newItem));
+                Destroy(ItemDisplaySlot);
 
 
             }
@@ -94,11 +94,11 @@ public class Inventory : MonoBehaviour
         ItemDisplaySlot = null;
         newItem.GetComponent<Rigidbody>().isKinematic = false;
         GameObject.FindGameObjectWithTag("ItemImage").GetComponent<Image>().color = new Color(255, 255, 255, 0);
-        if (newItem.GetComponent<ItemVariable>().itemID == "001")
+        /*if (newItem.GetComponent<ItemVariable>().itemID == "001")
         {
             DoorOne.GetComponent<DetectionControler>().key = null;
             DoorOne.GetComponent<DetectionControler>().haveKey = false;
-        }
+        }*/
 
 
 

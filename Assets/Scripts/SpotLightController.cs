@@ -1,0 +1,60 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpotLightController : MonoBehaviour
+{
+    public GameObject light1;
+    public GameObject light2;
+    public GameObject light3;
+    public int i = 5;
+
+    void Start()
+    {
+        StartCoroutine(LoopLight());
+    }
+
+
+    System.Collections.IEnumerator LoopLight()
+    {
+        while (true)
+        {
+
+            yield return new WaitForSeconds(2);
+
+            i = 5;
+            while (i > 0)
+            {
+                light1.GetComponent<Animator>().SetTrigger("loop");
+                i--;
+                yield return new WaitForSeconds(1.3f);
+
+            }
+
+            i = 3;
+            yield return new WaitForSeconds(2f);
+
+            while (i > 0)
+            {
+                light2.GetComponent<Animator>().SetTrigger("loop");
+                i--;
+                yield return new WaitForSeconds(1.3f);
+
+            }
+
+            i = 2;
+            yield return new WaitForSeconds(2f);
+
+            while (i > 0)
+            {
+                light3.GetComponent<Animator>().SetTrigger("loop");
+                i--;
+                yield return new WaitForSeconds(1.3f);
+
+            }
+        }
+        
+
+
+    }
+}

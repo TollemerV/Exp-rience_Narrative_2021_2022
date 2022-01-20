@@ -21,6 +21,8 @@ public class PlayerControler : MonoBehaviour
     public GameObject inventory;
     public GameObject Ath;
 
+    public Camera cameraDistrib;
+
     void Start()
     {
         Cursor.visible = false;
@@ -101,6 +103,16 @@ public class PlayerControler : MonoBehaviour
                     Ath.SetActive(false);
                 } 
             }
+
+            if (Input.GetKey(KeyCode.G))
+            {
+                cameraDistrib.gameObject.SetActive(true);
+                isPause = true;
+                
+                Ath.SetActive(false);
+            }
+
+           
 
             
 

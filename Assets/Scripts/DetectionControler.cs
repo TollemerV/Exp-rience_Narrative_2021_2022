@@ -11,53 +11,41 @@ public class DetectionControler : MonoBehaviour
     public bool haveKey = false;
     public Animator fadeSystem;
     public Animator doorRotation;
-
-    void OnTriggerEnter()
-    {
-        if (!haveKey)
-        {
-            missingKeyText.gameObject.SetActive(true);
-        }
-        else
-        {
-            haveKeyText.gameObject.SetActive(true);
-        }
-        
-    }
+    public GameObject inventory;
 
     bool isOpen = false;
 
     void OnTriggerStay()
     {
+        DisplayMessage();
 
-        if (key != null && Input.GetKey(KeyCode.F))
+        if (CheckKey() && Input.GetKey(KeyCode.F))
         {
             if (!isOpen)
             {
                 
                 doorRotation.SetTrigger("OpenDoor");
                 StartCoroutine(CorroutineOpenDoor());
-                
-                
-                
-                key.SetActive(false);
+                Destroy(key);
                 //transform.parent.gameObject.SetActive(false);
                 haveKeyText.gameObject.SetActive(false);
                 isOpen = true;
+                transform.gameObject.SetActive(false);
             }
         }
     }
 
     void OnTriggerExit()
     {
-        if (!haveKey)
-        {
-            missingKeyText.gameObject.SetActive(false);
-        }
-        else
+        if (CheckKey())
         {
             haveKeyText.gameObject.SetActive(false);
         }
+        else
+        {
+            missingKeyText.gameObject.SetActive(false);
+        }
+        haveKey = false;
     }
 
     IEnumerator CorroutineOpenDoor()
@@ -65,6 +53,39 @@ public class DetectionControler : MonoBehaviour
         yield return new WaitForSeconds(1f);
         fadeSystem.SetTrigger("FadeIn");
     }
+
+    public bool CheckKey()
+    {
+        int i = 0;
+        do
+        {
+            Transform item = inventory.transform.GetChild(i);
+            if (item.GetComponent<ItemSlots>().itemID == "001")
+            {
+                key = item.gameObject;
+                return true;
+                
+            }
+            i += 1;
+        } while (i < inventory.transform.childCount);
+
+        return false;
+    }
+
+    private void DisplayMessage()
+    {
+        if (CheckKey())
+        {
+            haveKeyText.gameObject.SetActive(true);
+            missingKeyText.gameObject.SetActive(false);
+        }
+        else
+        {
+            haveKeyText.gameObject.SetActive(false);
+            missingKeyText.gameObject.SetActive(true);
+        }
+    }
 }
+
 
 
