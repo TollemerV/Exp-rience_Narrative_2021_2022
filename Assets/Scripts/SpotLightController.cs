@@ -7,11 +7,14 @@ public class SpotLightController : MonoBehaviour
     public GameObject light1;
     public GameObject light2;
     public GameObject light3;
-    public int i = 5;
+    public DigicodeEventController digicodeEventController;
+    public string code;
+    public int i;
 
     void Start()
     {
         StartCoroutine(LoopLight());
+        
     }
 
 
@@ -21,8 +24,8 @@ public class SpotLightController : MonoBehaviour
         {
 
             yield return new WaitForSeconds(2);
-
-            i = 5;
+            
+            i = int.Parse(code.Substring(0,1));
             while (i > 0)
             {
                 light1.GetComponent<Animator>().SetTrigger("loop");
@@ -31,7 +34,7 @@ public class SpotLightController : MonoBehaviour
 
             }
 
-            i = 3;
+            i = int.Parse(code.Substring(1,1));
             yield return new WaitForSeconds(2f);
 
             while (i > 0)
@@ -42,7 +45,7 @@ public class SpotLightController : MonoBehaviour
 
             }
 
-            i = 2;
+            i = int.Parse(code.Substring(2));
             yield return new WaitForSeconds(2f);
 
             while (i > 0)

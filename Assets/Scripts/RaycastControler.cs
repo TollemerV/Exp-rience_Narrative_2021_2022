@@ -10,9 +10,11 @@ public class RaycastControler : MonoBehaviour
     private Transform _selection;
     private bool beingCarried = false;
     public Material testMaterial;
+    public Camera cameraDistrib;
+    public PlayerControler playerControler;
+    public GameObject Ath;
 
 
-    
 
     void Update()
     {
@@ -28,7 +30,6 @@ public class RaycastControler : MonoBehaviour
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
         Debug.DrawRay(transform.position, transform.forward * 3.5f, Color.red);
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, 3.5f))
@@ -54,14 +55,19 @@ public class RaycastControler : MonoBehaviour
 
                 _selection = selection;
             } 
-            else if (selection.name == "Digicode_00" && Input.GetKeyDown(KeyCode.G))
+            else if (selection.name == "Digicode_00")
             {
-                print("digicode");
-                Cursor.visible = true;
-                Cursor.lockState = 0;
-                gameObject.SetActive(false);
+                if (Input.GetKeyDown(KeyCode.G) && !playerControler.isPause)
+                {
+
+                    
+                    StartCoroutine(toDigicode(selection));
+                    
+
+                }
+                
             }
-            
+
 
             if (selection.CompareTag("CanBeCarried") && Input.GetMouseButtonDown(0) && !beingCarried)
             {
@@ -87,5 +93,39 @@ public class RaycastControler : MonoBehaviour
 
 
         }
+    }
+
+    System.Collections.IEnumerator toDigicode(Transform selection)
+    {
+        Vector3 CameraPosition = transform.position;
+        Ath.SetActive(false);
+
+
+
+
+        selection.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<Animator>().SetTrigger("moveCamera");
+        yield return new WaitForEndOfFrame();
+        playerControler.isPause = true;
+        //transform.rotation = cameraDistrib.transform.rotation;
+        
+        while (transform.rotation != cameraDistrib.transform.rotation)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, cameraDistrib.transform.position, 0.05f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, cameraDistrib.transform.rotation, 0.05f);
+            yield return new WaitForEndOfFrame();
+        }
+        
+
+        yield return new WaitForSeconds(0.1f);
+        Cursor.visible = true;
+        Cursor.lockState = 0;
+
+
+        gameObject.SetActive(false);
+        cameraDistrib.gameObject.SetActive(true); //problème (il faut appuyer 2 fois)
+        transform.position = CameraPosition;
+        gameObject.GetComponent<Camera>().fieldOfView = 71.2266f;
+        Debug.Log("digicode");
     }
 }

@@ -9,8 +9,19 @@ public class DigicodeEventController : MonoBehaviour
     public Material onClickMaterial;
     public Text textNumber;
     public string number;
+    public GameObject spotLight;
 
+    public string code;
     
+
+
+    void Start()
+    {
+        code = Random.Range(100, 999).ToString();
+        spotLight.GetComponent<SpotLightController>().code = code;
+        Debug.Log(code);
+    }
+
 
     public void ClickButton(int numero)
     {
@@ -18,7 +29,7 @@ public class DigicodeEventController : MonoBehaviour
 
         if (numero== 10)
         {
-            if (number == "123")
+            if (number == code)
             {
                 print("Code Bon");
             }

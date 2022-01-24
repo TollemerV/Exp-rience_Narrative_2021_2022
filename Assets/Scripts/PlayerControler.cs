@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class PlayerControler : MonoBehaviour
     public GameObject Ath;
 
     public Camera cameraDistrib;
+    public Collider digicodeCollider;
+    public DigicodeEventController digicodeController;
 
     void Start()
     {
@@ -32,15 +35,34 @@ public class PlayerControler : MonoBehaviour
 
     void Update()
     {
+
+        if (isPause)
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                cameraDistrib.gameObject.SetActive(false);
+                playerCamera.gameObject.SetActive(true);
+                isPause = false;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Ath.SetActive(true);
+                digicodeCollider.enabled = true;
+                digicodeController.number = "";
+
+                digicodeController.textNumber.gameObject.SetActive(false);
+            }
+        }
+
+
         if (!isPause)
         {
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
+            
 
             float speedZ = Input.GetAxis("Vertical");
             float speedX = Input.GetAxis("Horizontal");
             float speedY = moveDirection.y;
-
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 isRunning = true;
@@ -104,13 +126,7 @@ public class PlayerControler : MonoBehaviour
                 } 
             }
 
-            if (Input.GetKey(KeyCode.G))
-            {
-                cameraDistrib.gameObject.SetActive(true);
-                isPause = true;
-                
-                Ath.SetActive(false);
-            }
+            
 
            
 

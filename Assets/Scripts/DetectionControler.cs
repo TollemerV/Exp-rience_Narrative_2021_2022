@@ -15,24 +15,28 @@ public class DetectionControler : MonoBehaviour
 
     bool isOpen = false;
 
-    void OnTriggerStay()
+    void OnTriggerStay(Collider other)
     {
-        DisplayMessage();
-
-        if (CheckKey() && Input.GetKey(KeyCode.F))
+        if (other.gameObject.name == "Player")
         {
-            if (!isOpen)
+            DisplayMessage();
+
+            if (CheckKey() && Input.GetKey(KeyCode.F))
             {
-                
-                doorRotation.SetTrigger("OpenDoor");
-                StartCoroutine(CorroutineOpenDoor());
-                Destroy(key);
-                //transform.parent.gameObject.SetActive(false);
-                haveKeyText.gameObject.SetActive(false);
-                isOpen = true;
-                transform.gameObject.SetActive(false);
+                if (!isOpen)
+                {
+
+                    doorRotation.SetTrigger("OpenDoor");
+                    StartCoroutine(CorroutineOpenDoor());
+                    Destroy(key);
+                    //transform.parent.gameObject.SetActive(false);
+                    haveKeyText.gameObject.SetActive(false);
+                    isOpen = true;
+                    transform.gameObject.SetActive(false);
+                }
             }
         }
+        
     }
 
     void OnTriggerExit()
@@ -56,18 +60,22 @@ public class DetectionControler : MonoBehaviour
 
     public bool CheckKey()
     {
-        int i = 0;
-        do
+        if (inventory.transform.childCount > 0)
         {
-            Transform item = inventory.transform.GetChild(i);
-            if (item.GetComponent<ItemSlots>().itemID == "001")
+            int i = 0;
+            do
             {
-                key = item.gameObject;
-                return true;
-                
-            }
-            i += 1;
-        } while (i < inventory.transform.childCount);
+                Transform item = inventory.transform.GetChild(i);
+                if (item.GetComponent<ItemSlots>().itemID == "001")
+                {
+                    key = item.gameObject;
+                    return true;
+
+                }
+                i += 1;
+            } while (i < inventory.transform.childCount);
+        }
+        
 
         return false;
     }
