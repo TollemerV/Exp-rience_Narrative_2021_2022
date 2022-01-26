@@ -35,12 +35,6 @@ public class Inventory : MonoBehaviour
             itemInventory.itemSlotSprite = itemScene.itemSlotSprite;
             itemInventory.itemDescription = itemScene.itemDescription;
             EventTrigger ItemEventTrigger = newItem.GetComponent<EventTrigger>();
-
-            /*if (itemScene.itemID=="001")
-            {
-                DoorOne.GetComponent<DetectionControler>().key = newItem.gameObject;
-                DoorOne.GetComponent<DetectionControler>().haveKey=true;
-            }*/
         }
         
     }
@@ -50,36 +44,19 @@ public class Inventory : MonoBehaviour
         print("test");
     }
 
-    public void DisableInventory()
-    {
-        StartCoroutine(CoroutineDisableInventory());
-    }
-
     private bool isSorted;
 
     void Update()
     {
         if (Input.GetKey(KeyCode.I))
         {
-            DisableInventory();
+            StartCoroutine(CoroutineDisableInventory());
         }
         if (Input.GetKey(KeyCode.T) && ItemDisplay != null)
         {
             if (!isSorted)
             {
-                ItemDisplaySlot.SetActive(false);
-                GameObject newItem = Instantiate(ItemDisplay, Vector3.forward, Quaternion.identity);
-                newItem.name = ItemDisplay.name;
-                Transform PlayerCameraTransform = player.GetComponent<PlayerControler>().playerCamera.transform;
-                newItem.transform.SetParent(PlayerCameraTransform, false);
-
-                isSorted = true;
-                newItem.GetComponent<Rigidbody>().isKinematic = true;
-                newItem.SetActive(true);
-                StartCoroutine(CoroutItem(newItem));
-                Destroy(ItemDisplaySlot);
-
-
+                RemoveInventory();
             }
             
         }
@@ -94,22 +71,13 @@ public class Inventory : MonoBehaviour
         ItemDisplaySlot = null;
         newItem.GetComponent<Rigidbody>().isKinematic = false;
         GameObject.FindGameObjectWithTag("ItemImage").GetComponent<Image>().color = new Color(255, 255, 255, 0);
-        /*if (newItem.GetComponent<ItemVariable>().itemID == "001")
-        {
-            DoorOne.GetComponent<DetectionControler>().key = null;
-            DoorOne.GetComponent<DetectionControler>().haveKey = false;
-        }*/
-
-
-
 
     }
     
 
     System.Collections.IEnumerator CoroutineDisableInventory()
     {
-        
-        
+
         yield return new WaitForSeconds(0.2f);
         gameObject.SetActive(false);
         player.GetComponent<PlayerControler>().isPause = false;
@@ -117,5 +85,19 @@ public class Inventory : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+    }
+
+    public void RemoveInventory()
+    {
+        ItemDisplaySlot.SetActive(false);
+        GameObject newItem = Instantiate(ItemDisplay, Vector3.forward, Quaternion.identity);
+        newItem.name = ItemDisplay.name;
+        Transform PlayerCameraTransform = player.GetComponent<PlayerControler>().playerCamera.transform;
+        newItem.transform.SetParent(PlayerCameraTransform, false);
+        isSorted = true;
+        newItem.GetComponent<Rigidbody>().isKinematic = true;
+        newItem.SetActive(true);
+        StartCoroutine(CoroutItem(newItem));
+        Destroy(ItemDisplaySlot);
     }
 }

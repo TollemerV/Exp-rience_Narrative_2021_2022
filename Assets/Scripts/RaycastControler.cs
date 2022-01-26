@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class RaycastControler : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class RaycastControler : MonoBehaviour
     public Camera cameraDistrib;
     public PlayerControler playerControler;
     public GameObject Ath;
+    public GameObject imgDigicode;
+    public Text canUseDigicode;
+    public Text canTakeItem;
+
 
 
 
@@ -26,6 +31,9 @@ public class RaycastControler : MonoBehaviour
             var selectionRenderer = _selection.GetComponent<Renderer>();
             selectionRenderer.material = testMaterial;
             _selection = null;
+            canUseDigicode.gameObject.SetActive(false);
+            canTakeItem.gameObject.SetActive(false);
+
         }
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -37,6 +45,10 @@ public class RaycastControler : MonoBehaviour
             var selection = hit.transform;
             if (selection.CompareTag(selectableTag))
             {
+                canTakeItem.text = "Appuyer sur E pour récupérer la " + selection.name;
+                canTakeItem.gameObject.SetActive(true);
+
+
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (testMaterial == null)
                 {
@@ -44,8 +56,6 @@ public class RaycastControler : MonoBehaviour
                 }
                 if (selectionRenderer != null)
                 {
-                    
-
                     selectionRenderer.material = diffMaterial;
                 }
                 if (Input.GetKey(KeyCode.E))
@@ -57,14 +67,14 @@ public class RaycastControler : MonoBehaviour
             } 
             else if (selection.name == "Digicode_00")
             {
-                if (Input.GetKeyDown(KeyCode.G) && !playerControler.isPause)
+
+                canUseDigicode.gameObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E) && !playerControler.isPause)
                 {
-
-                    
                     StartCoroutine(toDigicode(selection));
-                    
-
+                    canUseDigicode.gameObject.SetActive(false);
                 }
+                _selection = selection;
                 
             }
 
@@ -91,41 +101,39 @@ public class RaycastControler : MonoBehaviour
                 selection.GetComponent<Rigidbody>().AddForce(transform.forward * 350);
             }
 
-
         }
     }
 
     System.Collections.IEnumerator toDigicode(Transform selection)
     {
         Vector3 CameraPosition = transform.position;
+
         Ath.SetActive(false);
-
-
-
-
         selection.GetComponent<Collider>().enabled = false;
+
         gameObject.GetComponent<Animator>().SetTrigger("moveCamera");
         yield return new WaitForEndOfFrame();
+
         playerControler.isPause = true;
-        //transform.rotation = cameraDistrib.transform.rotation;
-        
-        while (transform.rotation != cameraDistrib.transform.rotation)
+        int i = 0;
+        while (transform.position != cameraDistrib.transform.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, cameraDistrib.transform.position, 0.05f);
             transform.rotation = Quaternion.Lerp(transform.rotation, cameraDistrib.transform.rotation, 0.05f);
             yield return new WaitForEndOfFrame();
+            i++;
         }
-        
 
         yield return new WaitForSeconds(0.1f);
+
         Cursor.visible = true;
         Cursor.lockState = 0;
 
-
+        imgDigicode.SetActive(true);
         gameObject.SetActive(false);
-        cameraDistrib.gameObject.SetActive(true); //problème (il faut appuyer 2 fois)
+        cameraDistrib.gameObject.SetActive(true);
+
         transform.position = CameraPosition;
         gameObject.GetComponent<Camera>().fieldOfView = 71.2266f;
-        Debug.Log("digicode");
     }
 }

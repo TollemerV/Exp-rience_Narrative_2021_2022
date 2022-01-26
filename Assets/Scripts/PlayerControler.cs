@@ -25,6 +25,7 @@ public class PlayerControler : MonoBehaviour
     public Camera cameraDistrib;
     public Collider digicodeCollider;
     public DigicodeEventController digicodeController;
+    public GameObject imgDigicode;
 
     void Start()
     {
@@ -38,7 +39,7 @@ public class PlayerControler : MonoBehaviour
 
         if (isPause)
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 cameraDistrib.gameObject.SetActive(false);
                 playerCamera.gameObject.SetActive(true);
@@ -50,6 +51,7 @@ public class PlayerControler : MonoBehaviour
                 digicodeController.number = "";
 
                 digicodeController.textNumber.gameObject.SetActive(false);
+                imgDigicode.SetActive(false);
             }
         }
 

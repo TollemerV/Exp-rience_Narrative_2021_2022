@@ -10,7 +10,9 @@ public class DigicodeEventController : MonoBehaviour
     public Text textNumber;
     public string number;
     public GameObject spotLight;
-
+    public Animator tourbillon;
+    public Animator porte;
+    public Animator key;
     public string code;
     
 
@@ -32,6 +34,7 @@ public class DigicodeEventController : MonoBehaviour
             if (number == code)
             {
                 print("Code Bon");
+                StartCoroutine(CodeBon());
             }
             else
             {
@@ -62,5 +65,15 @@ public class DigicodeEventController : MonoBehaviour
     public void OnPointerUp(GameObject objet)
     {
         objet.GetComponent<Renderer>().material = defaultMaterial;
+    }
+
+    System.Collections.IEnumerator CodeBon()
+    {
+        tourbillon.SetTrigger("Code Bon");
+        key.SetTrigger("Code Bon");
+        
+        yield return new WaitForSeconds(1.5f);
+        key.enabled = false;
+        porte.SetTrigger("Code Bon");
     }
 }
