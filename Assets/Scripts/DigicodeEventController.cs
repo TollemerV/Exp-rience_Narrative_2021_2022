@@ -10,16 +10,16 @@ public class DigicodeEventController : MonoBehaviour
     public Text textNumber;
     public string number;
     public GameObject spotLight;
-    public Animator tourbillon;
     public Animator porte;
-    public Animator key;
+    public Animator tourbillonAnimation;
     public string code;
+
     
 
 
     void Start()
     {
-        code = Random.Range(100, 999).ToString();
+        code = Random.Range(1, 6).ToString() + Random.Range(1, 6).ToString() + Random.Range(1, 6).ToString();
         spotLight.GetComponent<SpotLightController>().code = code;
         Debug.Log(code);
     }
@@ -35,6 +35,8 @@ public class DigicodeEventController : MonoBehaviour
             {
                 print("Code Bon");
                 StartCoroutine(CodeBon());
+                number = "";
+                textNumber.text = "";
             }
             else
             {
@@ -69,11 +71,9 @@ public class DigicodeEventController : MonoBehaviour
 
     System.Collections.IEnumerator CodeBon()
     {
-        tourbillon.SetTrigger("Code Bon");
-        key.SetTrigger("Code Bon");
+        tourbillonAnimation.SetTrigger("Code Bon");
         
-        yield return new WaitForSeconds(1.5f);
-        key.enabled = false;
+        yield return new WaitForSeconds(4f);
         porte.SetTrigger("Code Bon");
     }
 }

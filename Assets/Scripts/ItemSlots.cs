@@ -33,4 +33,14 @@ public class ItemSlots : MonoBehaviour
         transform.parent.parent.GetComponent<Inventory>().ItemDisplaySlot = transform.gameObject;
     }
 
+    public void Drag()
+    {
+        Debug.Log(Object.name);
+    }
+
+    public void Drop()
+    {
+        Debug.Log(Object.name + "Drop");
+    }
+
 }
