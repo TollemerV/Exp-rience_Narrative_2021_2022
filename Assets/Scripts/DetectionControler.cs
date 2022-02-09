@@ -7,41 +7,48 @@ public class DetectionControler : MonoBehaviour
 {
     public GameObject key;
     public Text missingKeyText;
-    public Text haveKeyText;
+    public Text openDoorText;
+    public Text closeDoorText;
     public bool haveKey = false;
-    public Animator doorRotation;
+    public string location;
+    [SerializeField] Animator proximityDoor = null;
+    [SerializeField] private bool isOpen = false;
+    [SerializeField] private bool isRunning = false;
+
 
     void OnTriggerEnter()
     {
+        //proximityDoor = GameObject.Find("DoorRotation_" + location);
+
         if (!haveKey)
         {
             missingKeyText.gameObject.SetActive(true);
         }
         else
         {
-            haveKeyText.gameObject.SetActive(true);
+            if (!isOpen)
+            {
+                openDoorText.gameObject.SetActive(true);
+            }
+            else
+            {
+                closeDoorText.gameObject.SetActive(true);
+            }
         }
         
     }
 
-    bool isOpen = false;
-
     void OnTriggerStay()
     {
-
-        if (key != null && Input.GetKey(KeyCode.F))
+        if (key != null && Input.GetKey(KeyCode.F) && !isRunning)
         {
-            if (!isOpen)
+            if (!proximityDoor.GetCurrentAnimatorStateInfo(0).IsName("OpenDoor_" + location))
             {
-                
-                doorRotation.SetTrigger("OpenDoor");
-                
-                
-                
-                key.SetActive(false);
-                //transform.parent.gameObject.SetActive(false);
-                haveKeyText.gameObject.SetActive(false);
-                isOpen = true;
+                StartCoroutine(openDoor());
+            }
+            else
+            {
+                StartCoroutine(closeDoor());
             }
         }
     }
@@ -54,8 +61,43 @@ public class DetectionControler : MonoBehaviour
         }
         else
         {
-            haveKeyText.gameObject.SetActive(false);
+            if (!isOpen)
+            {
+                openDoorText.gameObject.SetActive(false);
+            }
+            else
+            {
+                closeDoorText.gameObject.SetActive(false);
+            }
         }
+    }
+
+    IEnumerator openDoor()
+    {
+        isRunning = true;
+        openDoorText.gameObject.SetActive(false);
+        proximityDoor.SetTrigger("OpenDoor_" + location);
+        Debug.Log("OpenDoor_" + location);
+        //doorRotation
+        proximityDoor.Play("OpenDoor_" + location);
+        key.SetActive(false);
+        isOpen = true;
+        yield return new WaitForSeconds(1);
+        closeDoorText.gameObject.SetActive(true);
+        isRunning = false;
+        yield break;
+    }
+
+    IEnumerator closeDoor()
+    {
+        closeDoorText.gameObject.SetActive(false);
+        isRunning = true;
+        proximityDoor.Play("CloseDoor_" + location);
+        isOpen = false;
+        yield return new WaitForSeconds(1);
+        isRunning = false;
+        openDoorText.gameObject.SetActive(true);
+        yield break;
     }
 }
 
