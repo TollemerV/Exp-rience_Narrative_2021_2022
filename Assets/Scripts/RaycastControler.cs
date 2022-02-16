@@ -17,7 +17,7 @@ public class RaycastControler : MonoBehaviour
     public GameObject imgDigicode;
     public Text canUseDigicode;
     public Text canTakeItem;
-
+    
 
 
 
@@ -25,7 +25,6 @@ public class RaycastControler : MonoBehaviour
     {
         if (_selection != null)
         {
-            
             
             //defaultMaterial = _selection.GetComponent<Material>();
             var selectionRenderer = _selection.GetComponent<Renderer>();
@@ -40,7 +39,7 @@ public class RaycastControler : MonoBehaviour
         RaycastHit hit;
         Debug.DrawRay(transform.position, transform.forward * 3.5f, Color.red);
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 3.5f))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2.5f))
         {
             var selection = hit.transform;
             if (selection.CompareTag(selectableTag))
@@ -134,6 +133,6 @@ public class RaycastControler : MonoBehaviour
         cameraDistrib.gameObject.SetActive(true);
 
         transform.position = CameraPosition;
-        gameObject.GetComponent<Camera>().fieldOfView = 71.2266f;
+        gameObject.GetComponent<Camera>().fieldOfView = 50f;
     }
 }
