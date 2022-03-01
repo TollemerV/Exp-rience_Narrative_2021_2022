@@ -14,6 +14,9 @@ public class Inventory : MonoBehaviour
     public GameObject DoorOne;
     public GameObject ItemDisplay;
     public GameObject ItemDisplaySlot;
+    public GameEventControler gameEventControler;
+
+    private int pageFound;
 
     public void AddInventory(GameObject objet)
     {
@@ -35,6 +38,13 @@ public class Inventory : MonoBehaviour
             itemInventory.itemSlotSprite = itemScene.itemSlotSprite;
             itemInventory.itemDescription = itemScene.itemDescription;
             EventTrigger ItemEventTrigger = newItem.GetComponent<EventTrigger>();
+
+            if (itemInventory.itemType == "page")
+            {
+                pageFound++;
+                gameEventControler.PageEvent(pageFound);
+
+            }
         }
         
     }

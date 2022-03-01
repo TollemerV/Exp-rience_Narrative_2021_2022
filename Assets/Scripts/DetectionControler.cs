@@ -66,7 +66,7 @@ public class DetectionControler : MonoBehaviour
             do
             {
                 Transform item = inventory.transform.GetChild(i);
-                if (item.GetComponent<ItemSlots>().itemID == "001")
+                if (item.GetComponent<ItemSlots>().itemID == "007")
                 {
                     key = item.gameObject;
                     return true;
