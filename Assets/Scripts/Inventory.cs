@@ -58,11 +58,11 @@ public class Inventory : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.Escape))
         {
             StartCoroutine(CoroutineDisableInventory());
         }
-        if (Input.GetKey(KeyCode.T) && ItemDisplay != null)
+        if (Input.GetKey(KeyCode.T) && ItemDisplay != null && ItemDisplay.GetComponent<ItemVariable>().itemType!= "page")
         {
             if (!isSorted)
             {
