@@ -76,6 +76,13 @@ public class RaycastControler : MonoBehaviour
                 _selection = selection;
                 
             }
+            else if (selection.name == "Piano")
+            {
+                if (Input.GetKeyDown(KeyCode.E) && !playerControler.isPause)
+                {
+                    selection.GetComponent<PianoController>().UsePiano();
+                }
+            }
 
 
             if (selection.CompareTag("CanBeCarried") && Input.GetMouseButtonDown(0) && !beingCarried)
@@ -103,6 +110,8 @@ public class RaycastControler : MonoBehaviour
         }
     }
 
+
+
     System.Collections.IEnumerator toDigicode(Transform selection)
     {
         Vector3 CameraPosition = transform.position;
@@ -114,13 +123,13 @@ public class RaycastControler : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         playerControler.isPause = true;
-        int i = 0;
+        //int i = 0;    peut être inutile
         while (transform.position != cameraDistrib.transform.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, cameraDistrib.transform.position, 0.05f);
             transform.rotation = Quaternion.Lerp(transform.rotation, cameraDistrib.transform.rotation, 0.05f);
             yield return new WaitForEndOfFrame();
-            i++;
+            //i++;
         }
 
         yield return new WaitForSeconds(0.1f);

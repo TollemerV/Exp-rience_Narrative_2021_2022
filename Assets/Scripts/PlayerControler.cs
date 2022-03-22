@@ -29,12 +29,12 @@ public class PlayerControler : MonoBehaviour
 
     void Start()
     {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked ;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked ;
         characterController = GetComponent<CharacterController>();
-        Cursor.visible = true;
+        /*Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        isPause = true;
+        isPause = true;*/
 
     }
 
@@ -108,7 +108,7 @@ public class PlayerControler : MonoBehaviour
 
             characterController.Move(moveDirection * Time.deltaTime);
 
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 isPause = true;
                 Cursor.visible = true;
