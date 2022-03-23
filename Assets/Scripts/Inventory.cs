@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour
     public GameObject ItemDisplay;
     public GameObject ItemDisplaySlot;
     public GameEventControler gameEventControler;
+    public GameObject affichePage;
+    public GameObject fondNoire;
 
     private int pageFound;
 
@@ -43,7 +45,12 @@ public class Inventory : MonoBehaviour
             {
                 pageFound++;
                 gameEventControler.PageEvent(pageFound);
-
+                player.GetComponent<PlayerControler>().isPause = true;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                affichePage.SetActive(true);
+                affichePage.GetComponent<Image>().sprite = itemInventory.itemSprite;
+                fondNoire.SetActive(true);
             }
         }
         

@@ -6,7 +6,7 @@ public class PianoController: MonoBehaviour
 {
     public GameObject cameraPlayer;
     public GameObject ath;
-    public PlayerControler playerControler;
+    public GameObject player;
     public GameObject cameraPiano;
     bool isUsePiano = false;
 
@@ -16,7 +16,6 @@ public class PianoController: MonoBehaviour
     {
         if (isUsePiano && Input.GetKeyDown(KeyCode.Escape))
         {
-
             DisablePiano();
             isUsePiano = false;
         }
@@ -39,27 +38,32 @@ public class PianoController: MonoBehaviour
         ath.SetActive(true);
         
         gameObject.GetComponent<BoxCollider>().enabled = true;
-        playerControler.isPause = false;
+        StartCoroutine(WaitDisable());
 
     }
 
+    System.Collections.IEnumerator WaitDisable()
+    {
+        yield return new WaitForSeconds(0.5f);
+        player.GetComponent<PlayerControler>().isPause = false;
+
+    }
 
     System.Collections.IEnumerator UsePianoCoroutine()
     {
         Vector3 baseCameraPostion = cameraPlayer.transform.position;
         Quaternion baseCameraRotation = cameraPlayer.transform.rotation;
         gameObject.GetComponent<BoxCollider>().enabled = false;
-        playerControler.isPause = true; 
+        
 
         while (cameraPlayer.transform.position != cameraPiano.transform.position)
         {
             cameraPlayer.transform.position = Vector3.MoveTowards(cameraPlayer.transform.position, cameraPiano.transform.position, 0.05f);
             cameraPlayer.transform.rotation = Quaternion.Lerp(cameraPlayer.transform.rotation, cameraPiano.transform.rotation, 0.07f);
-            Debug.Log("transformation camera");
             yield return new WaitForEndOfFrame();
         }
+        player.GetComponent<PlayerControler>().isPause = true;
         yield return new WaitForSeconds(0.1f);
-
         Cursor.visible = true;
         Cursor.lockState = 0;
         cameraPiano.SetActive(true);

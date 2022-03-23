@@ -9,7 +9,7 @@ public class RaycastControler : MonoBehaviour
     [SerializeField] private Material defaultMaterial;
     public GameObject inventory;
     private Transform _selection;
-    private bool beingCarried = false;
+    public bool beingCarried = false;
     public Material testMaterial;
     public Camera cameraDistrib;
     public PlayerControler playerControler;
@@ -37,7 +37,7 @@ public class RaycastControler : MonoBehaviour
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Debug.DrawRay(transform.position, transform.forward * 3.5f, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * 2.5f, Color.red);
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, 2.5f))
         {
@@ -89,14 +89,13 @@ public class RaycastControler : MonoBehaviour
             {
                 selection.parent = transform;
                 selection.GetComponent<Rigidbody>().isKinematic = true;
-                beingCarried = true;
+                selection.GetComponent<Collider>().isTrigger = true;
+                StartCoroutine(WaitCarried(selection));
             }
 
             if (selection.CompareTag("CanBeCarried") && Input.GetKeyDown(KeyCode.A) && beingCarried)
             {
-                selection.parent = null;
-                selection.GetComponent<Rigidbody>().isKinematic = false;
-                beingCarried = false;
+                DropObject(selection);
             }
 
             if (selection.CompareTag("CanBeCarried") && Input.GetMouseButtonDown(1) && beingCarried)
@@ -105,12 +104,30 @@ public class RaycastControler : MonoBehaviour
                 selection.GetComponent<Rigidbody>().isKinematic = false;
                 beingCarried = false;
                 selection.GetComponent<Rigidbody>().AddForce(transform.forward * 350);
+                selection.GetComponent<Collider>().isTrigger = false;
             }
 
         }
     }
 
+    public void DropObject(Transform selection)
+    {
+        selection.parent = null;
+        selection.GetComponent<Rigidbody>().isKinematic = false;
+        beingCarried = false;
+        selection.gameObject.GetComponent<IsCarried>().enabled = false;
+        selection.GetComponent<Collider>().isTrigger = false;
 
+    }
+
+    System.Collections.IEnumerator WaitCarried(Transform selection)
+    {
+        yield return new WaitForSeconds(0.3f);
+        beingCarried = true;
+
+        selection.gameObject.GetComponent<IsCarried>().enabled = true;
+
+    }
 
     System.Collections.IEnumerator toDigicode(Transform selection)
     {

@@ -12,7 +12,6 @@ public class ItemSlots : MonoBehaviour
     public string itemDescription;
     public GameObject Object;
     public GameObject imagePrefab;
-    public Image itemImagePanel;
 
     // Start is called before the first frame update
 

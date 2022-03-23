@@ -43,19 +43,9 @@ public class PlayerControler : MonoBehaviour
 
         if (isPause)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                cameraDistrib.gameObject.SetActive(false);
-                playerCamera.gameObject.SetActive(true);
-                isPause = false;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Ath.SetActive(true);
-                digicodeCollider.enabled = true;
-                digicodeController.number = "";
-
-                digicodeController.textNumber.gameObject.SetActive(false);
-                imgDigicode.SetActive(false);
+                StartCoroutine(leaveDigicode());
             }
         }
 
@@ -147,4 +137,22 @@ public class PlayerControler : MonoBehaviour
         
     }
     
+
+    public System.Collections.IEnumerator leaveDigicode()
+    {
+        
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Ath.SetActive(true);
+        digicodeCollider.enabled = true;
+        digicodeController.number = "";
+
+        digicodeController.textNumber.gameObject.SetActive(false);
+        imgDigicode.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        cameraDistrib.gameObject.SetActive(false);
+        playerCamera.gameObject.SetActive(true);
+        isPause = false;
+    }
 }

@@ -13,6 +13,7 @@ public class DigicodeEventController : MonoBehaviour
     public Animator porte;
     public Animator tourbillonAnimation;
     public string code;
+    public PlayerControler playerControler;
 
     
 
@@ -71,6 +72,7 @@ public class DigicodeEventController : MonoBehaviour
 
     System.Collections.IEnumerator CodeBon()
     {
+        StartCoroutine(playerControler.leaveDigicode());
         tourbillonAnimation.SetTrigger("Code Bon");
         
         yield return new WaitForSeconds(4f);
