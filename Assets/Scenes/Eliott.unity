@@ -1951,9 +1951,9 @@ MonoBehaviour:
   selectableTag: Selectable
   diffMaterial: {fileID: 2100000, guid: 2adff9be43871ff4492cfd95d67c18b7, type: 2}
   defaultMaterial: {fileID: 2100000, guid: b169d476f503f3e49904b62ee7840537, type: 2}
+  testMaterial: {fileID: 0}
   inventory: {fileID: 558709098}
   beingCarried: 0
-  testMaterial: {fileID: 0}
   cameraDistrib: {fileID: 1234937493}
   playerControler: {fileID: 1069557790}
   Ath: {fileID: 1860106392}
@@ -5506,77 +5506,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1354677157
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1354677158}
-  - component: {fileID: 1354677160}
-  - component: {fileID: 1354677159}
-  m_Layer: 5
-  m_Name: RawImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1354677158
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354677157}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1447538666}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1354677159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354677157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1354677160
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354677157}
-  m_CullTransparentMesh: 0
 --- !u!1 &1364429724
 GameObject:
   m_ObjectHideFlags: 0
@@ -6180,7 +6109,6 @@ RectTransform:
   - {fileID: 1288188678}
   - {fileID: 112945943}
   - {fileID: 349153900}
-  - {fileID: 1354677158}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10187,6 +10115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7610611322265976053}
   - component: {fileID: 665709747303524011}
+  - component: {fileID: 665709747303524012}
   m_Layer: 0
   m_Name: Clavier_00
   m_TagString: Untagged
@@ -10250,7 +10179,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10290,6 +10219,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &665709747303524012
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665709747303524010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2541987, y: 0.051553495, z: 0.3787867}
+  m_Center: {x: -0.074326195, y: 0.76660275, z: 0.044384003}
 --- !u!4 &679265022877736641
 Transform:
   m_ObjectHideFlags: 0
@@ -11516,6 +11458,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: facd61c07de9a6544b79d4801d7977d5, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 118
+  pianoController: {fileID: 6441154640225587006}
 --- !u!64 &1129099777156908241
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12528,6 +12471,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: d7d8cad878df1454fa1aa4728e0d2a1d, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 98
+  pianoController: {fileID: 6441154640225587006}
 --- !u!95 &1625410618703173721
 Animator:
   serializedVersion: 3
@@ -12586,7 +12530,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1551045180323459532, guid: e133873e66ecdcc43bc6512b751df36e, type: 3}
 --- !u!1 &1625756790251481068
@@ -13800,6 +13744,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: 4eafbf433eb61bc43aeced213096954b, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 110
+  pianoController: {fileID: 6441154640225587006}
 --- !u!95 &2104676911391940398
 Animator:
   serializedVersion: 3
@@ -13858,7 +13803,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7969474772508694888, guid: e133873e66ecdcc43bc6512b751df36e, type: 3}
 --- !u!23 &2129262277561517887
@@ -15439,6 +15384,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: 84296b89bf25fb74e885b1d8b66343cb, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 118
+  pianoController: {fileID: 6441154640225587006}
 --- !u!95 &2976272469455796335
 Animator:
   serializedVersion: 3
@@ -15497,7 +15443,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5599777369950611242, guid: e133873e66ecdcc43bc6512b751df36e, type: 3}
 --- !u!4 &3020493452262922759
@@ -16723,6 +16669,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: b838731ba662a7140941284aec6b629c, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 118
+  pianoController: {fileID: 6441154640225587006}
 --- !u!64 &3752598980264807121
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16890,6 +16837,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: 06ed794d93540cf4c860d3f8b13b7326, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 118
+  pianoController: {fileID: 6441154640225587006}
 --- !u!64 &3798550484955350377
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20470,6 +20418,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: 35c5dc1581dcb4e42ab18d88a12c4078, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 118
+  pianoController: {fileID: 6441154640225587006}
 --- !u!64 &5630879003443775322
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20569,6 +20518,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: 6d828d5f2503efe49ab1f6769c5b000e, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 118
+  pianoController: {fileID: 6441154640225587006}
 --- !u!64 &5640285199735074920
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21119,7 +21069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6441154640225587005}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.97, y: 0.825, z: 153.572}
+  m_LocalPosition: {x: 45.701, y: 0.825, z: 159.302}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 7610611322265976053}
@@ -21745,6 +21695,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: 0b507a223271919428b628e72a4ab703, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 118
+  pianoController: {fileID: 6441154640225587006}
 --- !u!64 &6143172474783661084
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22090,6 +22041,12 @@ MonoBehaviour:
   ath: {fileID: 1860106392}
   player: {fileID: 1069557789}
   cameraPiano: {fileID: 1263456276}
+  melodyTime: 0
+  isUsePianoKey: 0
+  audioSource: {fileID: 665709747303524011}
+  melody1: {fileID: 8300000, guid: 626d6ff5a2a1aa542bdbc588c3c8b164, type: 3}
+  cantPlayCollider: {fileID: 665709747303524012}
+  melodyPlayed: 
 --- !u!65 &6441154640225587007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24616,6 +24573,7 @@ MonoBehaviour:
   toucheClip: {fileID: 8300000, guid: 28c24f4070f7c11439ed305d9e6fbf4e, type: 3}
   audioSource: {fileID: 665709747303524011}
   code: 118
+  pianoController: {fileID: 6441154640225587006}
 --- !u!33 &7822607763411878959
 MeshFilter:
   m_ObjectHideFlags: 0

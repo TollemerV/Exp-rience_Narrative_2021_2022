@@ -7,10 +7,10 @@ public class RaycastControler : MonoBehaviour
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private Material diffMaterial;
     [SerializeField] private Material defaultMaterial;
+    public Material testMaterial;
     public GameObject inventory;
     private Transform _selection;
     public bool beingCarried = false;
-    public Material testMaterial;
     public Camera cameraDistrib;
     public PlayerControler playerControler;
     public GameObject Ath;

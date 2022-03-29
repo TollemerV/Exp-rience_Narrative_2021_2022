@@ -9,23 +9,71 @@ public class PianoController: MonoBehaviour
     public GameObject player;
     public GameObject cameraPiano;
     bool isUsePiano = false;
+    public float melodyTime = 0;
+    public bool isUsePianoKey;
+    public AudioSource audioSource;
+    public AudioClip melody1;
+    public Collider cantPlayCollider;
+    public List<int> melodyPlayed ;
+    private List<int> melodyValues = new List<int> {5,5,4,2,6,5 };
+    private bool findMelody;
 
-
+   
 
     private void Update()
     {
+
+
+        if (!audioSource.isPlaying)
+        {
+            melodyTime += Time.deltaTime;
+            cantPlayCollider.enabled = false;
+        }
+
+
         if (isUsePiano && Input.GetKeyDown(KeyCode.Escape))
         {
             DisablePiano();
             isUsePiano = false;
         }
 
+        if (Verify(melodyPlayed, melodyValues) && !findMelody)
+        {
+            DisablePiano();
+            isUsePiano = false;
+            findMelody = true;
+        }
+
+
+        if (melodyTime >= 2 && isUsePianoKey && !findMelody)
+        {
+            melodyTime = 0;
+            isUsePianoKey = false;
+            audioSource.PlayOneShot(melody1);
+            cantPlayCollider.enabled = true;
+            melodyPlayed.Clear();
+        }
+
+        if (melodyTime >= 5 && !findMelody)
+        {
+            melodyTime = 0;
+            audioSource.PlayOneShot(melody1);
+            cantPlayCollider.enabled = true;
+            melodyPlayed.Clear();
+        }
+
+
+
     }
 
     public void UsePiano()
     {
-        StartCoroutine(UsePianoCoroutine());
-        isUsePiano = true;
+        if (!findMelody)
+        {
+            StartCoroutine(UsePianoCoroutine());
+            isUsePiano = true;
+        }
+        
         
     }
     
@@ -41,6 +89,25 @@ public class PianoController: MonoBehaviour
         StartCoroutine(WaitDisable());
 
     }
+
+    private bool Verify(List<int> melodyPlayed, List<int> melody)
+    {
+        if (melodyPlayed.Count != melody.Count)
+        {
+            return false;
+        }
+        for (int i =0; i<melody.Count; i++)
+        {
+            if(melody[i] != melodyPlayed[i])
+            {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    
 
     System.Collections.IEnumerator WaitDisable()
     {
@@ -73,4 +140,10 @@ public class PianoController: MonoBehaviour
         ath.SetActive(false);
 
     }
+
+
+
+
+
+
 }
