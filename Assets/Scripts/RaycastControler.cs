@@ -66,7 +66,7 @@ public class RaycastControler : MonoBehaviour
             } 
             else if (selection.name == "Digicode_00")
             {
-
+                canUseDigicode.text = "Appuyer sur E pour utiliser le digicode";
                 canUseDigicode.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E) && !playerControler.isPause)
                 {

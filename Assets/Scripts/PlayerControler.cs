@@ -105,6 +105,7 @@ public class PlayerControler : MonoBehaviour
                 Cursor.lockState = 0;
                 pauseMenu.SetActive(true);
                 Ath.SetActive(false);
+                Time.timeScale = 0;
             }
 
 

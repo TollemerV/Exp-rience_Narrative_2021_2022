@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         player.GetComponent<PlayerControler>().isPause = false;
         player.GetComponent<PlayerControler>().Ath.SetActive(true);
+        Time.timeScale = 1f;
     }
 
     public void MainMenu()

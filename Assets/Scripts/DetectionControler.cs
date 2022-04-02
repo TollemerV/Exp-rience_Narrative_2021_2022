@@ -34,7 +34,7 @@ public class DetectionControler : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (other.gameObject.name == "Player" && Physics.Raycast(other.transform.position, other.transform.forward, out hit, 2.5f))
+        if (other.gameObject.name == "Player" && Physics.Raycast(other.transform.GetChild(0).position, other.transform.GetChild(0).forward, out hit, 2.5f))
         {
             var selection = hit.transform;
             if (selection.gameObject == transform.parent.gameObject)
