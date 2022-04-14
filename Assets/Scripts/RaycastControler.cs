@@ -27,8 +27,12 @@ public class RaycastControler : MonoBehaviour
         {
             
             //defaultMaterial = _selection.GetComponent<Material>();
-            var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = testMaterial;
+            if (_selection.CompareTag(selectableTag))
+            {
+                var selectionRenderer = _selection.GetComponent<Renderer>();
+                selectionRenderer.material = testMaterial;
+            }
+            
             _selection = null;
             canUseDigicode.gameObject.SetActive(false);
             canTakeItem.gameObject.SetActive(false);
@@ -78,10 +82,14 @@ public class RaycastControler : MonoBehaviour
             }
             else if (selection.name == "Piano")
             {
+                canUseDigicode.text = "Appuyer sur E pour utiliser le piano";
+                canUseDigicode.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E) && !playerControler.isPause)
                 {
                     selection.GetComponent<PianoController>().UsePiano();
+                    canUseDigicode.gameObject.SetActive(false);
                 }
+                _selection = selection;
             }
 
 

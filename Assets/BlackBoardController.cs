@@ -7,17 +7,19 @@ public class BlackBoardController : MonoBehaviour
 {
     private Transform _selection;
     public Text textDisplayed;
+    public GameObject player;
+    public GameObject cameraPlayer;
+    public GameObject blackBoardCamera;
+    public Collider blackBoardCollider;
+    public GameObject ath;
+    private bool isUseBlackBoard = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (isUseBlackBoard && Input.GetKeyDown(KeyCode.Escape))
+        {
+            quitBlackBoard();
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -34,12 +36,22 @@ public class BlackBoardController : MonoBehaviour
             var selection = hit.transform;
             if (selection.gameObject == gameObject)
             {
-                textDisplayed.text = "Appuyer sur E pour utiliser le tableau";
+                textDisplayed.text = "Appuyer sur [E] pour utiliser le tableau";
                 textDisplayed.gameObject.SetActive(true);
+                if (Input.GetKey(KeyCode.E))
+                {
+                    Debug.Log("Use Black board!");
+                    textDisplayed.gameObject.SetActive(false);
+                    StartCoroutine(useBlackBoardCoroutine());
+                    isUseBlackBoard = true;
+                    
+                }
             }
             _selection = selection;
                 
         }
+
+        
        
     }
 
@@ -48,4 +60,48 @@ public class BlackBoardController : MonoBehaviour
         textDisplayed.gameObject.SetActive(false);
     }
 
+    private void quitBlackBoard()
+    {
+        blackBoardCamera.SetActive(false);
+        cameraPlayer.SetActive(true);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        ath.SetActive(true);
+
+        isUseBlackBoard = false;
+        player.GetComponent<PlayerControler>().isPause = false;
+        player.GetComponent<MeshRenderer>().enabled = true;
+        foreach (Collider collider in gameObject.GetComponents<Collider>())
+        {
+            collider.enabled = true;
+        }
+    }
+
+    System.Collections.IEnumerator useBlackBoardCoroutine()
+    {
+        player.GetComponent<MeshRenderer>().enabled = false;
+        Vector3 baseCameraPostion = cameraPlayer.transform.position;
+        Quaternion baseCameraRotation = cameraPlayer.transform.rotation;
+        foreach (Collider collider in  gameObject.GetComponents<Collider>())
+        {
+            collider.enabled = false;
+        }
+        player.GetComponent<PlayerControler>().isPause = true;
+        while (cameraPlayer.transform.position != blackBoardCamera.transform.position)
+        {
+            cameraPlayer.transform.position = Vector3.MoveTowards(cameraPlayer.transform.position, blackBoardCamera.transform.position, 0.05f);
+            cameraPlayer.transform.rotation = Quaternion.Lerp(cameraPlayer.transform.rotation, blackBoardCamera.transform.rotation, 0.07f);
+            yield return new WaitForEndOfFrame();
+        }
+        
+        yield return new WaitForSeconds(0.1f);
+        Cursor.visible = true;
+        Cursor.lockState = 0;
+        blackBoardCamera.SetActive(true);
+        cameraPlayer.SetActive(false);
+        cameraPlayer.transform.position = baseCameraPostion;
+        cameraPlayer.transform.rotation = baseCameraRotation;
+        
+        ath.SetActive(false);
+    }
 }

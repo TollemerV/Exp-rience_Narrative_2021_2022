@@ -15,7 +15,7 @@ public class PianoController: MonoBehaviour
     public AudioClip melody1;
     public Collider cantPlayCollider;
     public List<int> melodyPlayed ;
-    private List<int> melodyValues = new List<int> {5,5,4,2,6,5 };
+    private List<int> melodyValues = new List<int> {5,5,4,2,6,5};
     private bool findMelody;
 
    
@@ -42,6 +42,8 @@ public class PianoController: MonoBehaviour
             DisablePiano();
             isUsePiano = false;
             findMelody = true;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            enabled = false;
         }
 
 
@@ -92,20 +94,30 @@ public class PianoController: MonoBehaviour
 
     private bool Verify(List<int> melodyPlayed, List<int> melody)
     {
-        if (melodyPlayed.Count != melody.Count)
+        int index = 0;
+        foreach(int note in melodyPlayed)
         {
-            return false;
-        }
-        for (int i =0; i<melody.Count; i++)
-        {
-            if(melody[i] != melodyPlayed[i])
+            if(note == melody[0]&& melodyPlayed.Count - index >= melody.Count)
             {
-                return false;
+                int i = index;
+                while(melodyPlayed[i] == melody[i - index])
+                {
+
+                    if(i-index+1 == melody.Count)
+                    {
+
+                        return true;
+                    }
+                    i++;
+                }
             }
+            index++;
         }
-        return true;
+
+        return false;
 
     }
+
 
     
 
@@ -121,7 +133,7 @@ public class PianoController: MonoBehaviour
         Vector3 baseCameraPostion = cameraPlayer.transform.position;
         Quaternion baseCameraRotation = cameraPlayer.transform.rotation;
         gameObject.GetComponent<BoxCollider>().enabled = false;
-        
+        player.GetComponent<PlayerControler>().isPause = true;
 
         while (cameraPlayer.transform.position != cameraPiano.transform.position)
         {
@@ -129,7 +141,7 @@ public class PianoController: MonoBehaviour
             cameraPlayer.transform.rotation = Quaternion.Lerp(cameraPlayer.transform.rotation, cameraPiano.transform.rotation, 0.07f);
             yield return new WaitForEndOfFrame();
         }
-        player.GetComponent<PlayerControler>().isPause = true;
+        
         yield return new WaitForSeconds(0.1f);
         Cursor.visible = true;
         Cursor.lockState = 0;

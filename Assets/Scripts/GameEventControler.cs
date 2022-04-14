@@ -9,7 +9,7 @@ public class GameEventControler : MonoBehaviour
 
     private void Start()
     {
-        PageEvent(0);
+        PageEvent(6);
     }
 
     public void PageEvent(int numberPage)
