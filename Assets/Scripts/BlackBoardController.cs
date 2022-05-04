@@ -75,7 +75,7 @@ public class BlackBoardController : MonoBehaviour
         pageUI.SetActive(false);
         selectedPageUI.SetActive(false);
         isUseBlackBoard = false;
-        player.GetComponent<PlayerControler>().isPause = false;
+        StartCoroutine(waitIsPause());
         player.GetComponent<MeshRenderer>().enabled = true;
         foreach (Collider collider in gameObject.GetComponents<Collider>())
         {
@@ -133,6 +133,12 @@ public class BlackBoardController : MonoBehaviour
 
         }
         
+    }
+
+    System.Collections.IEnumerator waitIsPause()
+    {
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<PlayerControler>().isPause = false;
     }
 }
 
